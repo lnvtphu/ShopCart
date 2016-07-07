@@ -1,0 +1,30 @@
+.uList{
+    padding-left: 0;
+    list-style: none;
+  }
+.listGroup{
+    margin: 5px 0;
+    border-radius: 5px;
+}
+.removeItem{
+    font-size: 20px;
+    cursor: pointer;
+    color: red;
+}
+.addItem{
+    font-size: 20px;
+    cursor: pointer;
+    color: blue;
+    margin-left: 5px;
+}
+.editItem{
+    font-size: 20px;
+    cursor: pointer;
+    color: green;
+    margin-left: 5px;
+}
+.todoItem: {
+    margin-left: 5px;
+    padding-left: 20px;
+    font-size: 17px;
+}
