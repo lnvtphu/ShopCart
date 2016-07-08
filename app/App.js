@@ -1,11 +1,11 @@
-var React = require('react')
-var ListContainer = require('./components/ListContainer')
-var Cart = require('./components/Cart')
-var Link = require('react-router').Link
-var Router = require('react-router').Router
-var Route = require('react-router').Route
-var browserHistory = require('react-router').browserHistory
-var IndexRoute = require('react-router').IndexRoute
+var React = require('react');
+var ListContainer = require('./components/ListContainer');
+var CartContainer = require('./components/CartContainer');
+var Link = require('react-router').Link;
+var Router = require('react-router').Router;
+var Route = require('react-router').Route;
+var browserHistory = require('react-router').browserHistory;
+var IndexRoute = require('react-router').IndexRoute;
 
 var App = React.createClass({
   render: function(){
@@ -30,7 +30,7 @@ React.render(
     <Router history={browserHistory}>
         <Route path="/" component={App}>
             <IndexRoute component={ListContainer} />
-            <Route path="cart" component={Cart} />
+            <Route path="cart" component={CartContainer} />
         </Route>
     </Router>
   ,document.getElementById('app')

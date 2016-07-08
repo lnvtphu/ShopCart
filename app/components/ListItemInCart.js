@@ -1,17 +1,18 @@
 var React = require('react');
+var Store = require('../stores/Store');
+var Actions = require('../actions/Actions');
 
-var Cart = React.createClass({
+var ListItemInCart = React.createClass({
     render: function(){
-        var list = this.props.carts.map(function(item, index){
+        var list = this.props.lists.map(function(item, index){
             return (
                 <li key={index} className="list-group-item listGroup" >
                     <span className="todoItem">
-                        {item.count}
                         {item.name}
                         {item.cost}
                     </span>
                     <span
-                        className="glyphicon glyphicon-remove removeItem buttonOren" onClick={this.props.removeFromCart.bind(null,index)} >
+                        className="glyphicon glyphicon-download-alt addItem buttonOren" onClick={this.props.addToCart.bind(null, index)}>
                     </span>
                 </li>
             )
@@ -23,4 +24,5 @@ var Cart = React.createClass({
         )
     }
 });
-module.exports = Cart;
+
+module.exports = ListItemInCart;

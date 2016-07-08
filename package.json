@@ -1,5 +1,5 @@
 {
-  "name": "mini-todoflux",
+  "name": "shopcart",
   "version": "1.0.0",
   "description": "",
   "main": "App.js",
@@ -11,14 +11,15 @@
   "scripts": {
     "start": "npm run build && npm run dev-server",
     "build": "./node_modules/.bin/webpack",
-    "dev-server": "node_modules/.bin/http-server -p 3000 public/"
+    "dev-server": "node_modules/.bin/http-server -p 3002 public/"
   },
   "dependencies": {
     "axios": "^0.4.2",
     "events": "^1.0.2",
     "flux": "^2.0.1",
     "react": "^0.12.1",
-    "react-router": "^2.5.2"
+    "react-router": "^2.5.2",
+    "webpack-dev-server": "^1.14.1"
   },
   "devDependencies": {
     "jsx-loader": "^0.12.2",

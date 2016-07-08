@@ -1,36 +1,30 @@
 var React = require('react');
 var AddItem = require('./AddItem');
-var List = require('./List');
-var todoStore = require('../stores/todoStore');
-var todoActions = require('../actions/todoActions');
+var List = require('./ListItem');
+var Store = require('../stores/Store');
+var Actions = require('../actions/Actions');
 
 var ListContainer = React.createClass({
   getInitialState: function(){
       return {
-          list: todoStore.getList()
+          list: Store.getList()
       }
   },
   componentDidMount: function(){
-      todoStore.addChangeListener(this._onChange);
+      Store.addChangeListener(this._onChange);
   },
   componentWillUnmount: function(){
-      todoStore.removeChangeListener(this._onChange);
+      Store.removeChangeListener(this._onChange);
   },
-  handleAddItem: function(newItem){
-      todoActions.addItem(newItem);
+  handleAddItem: function(item){
+      Actions.addItem(item);
   },
   handleRemoveItem: function(index){
-      todoActions.removeItem(index);
+      Actions.removeItem(index);
   },
-  handleAddToCart: function(item){
-      todoActions.addToCart(item);
-  },
-  handleRemoveFromCart: function(index){
-      todoActions.removeFromCart(index);
-  }
   _onChange: function(){
     this.setState({
-      list: todoStore.getList()
+      list: Store.getList()
     })
   },
   render: function(){

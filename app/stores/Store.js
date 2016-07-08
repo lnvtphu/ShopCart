@@ -18,13 +18,33 @@ var addItem = function(item){
 var removeItem = function(index){
     store.listItem.splice(index, 1);
 };
-var addCart = function(item){
-    cart.listCart.push(item);
+var addToCart = function(item){
+    var itemCart = {
+        "id": item.id,
+        "name": item.name,
+        "cost": item.cost,
+        "count": 1
+    }
+    if(cart.listCart.length > 0){
+        for(i=0; i< cart.listCart.length; i++){
+            if(item.id == cart.listCart[i].id){
+                console.log("equal");
+                itemCart.count = cart.listCart[i].count +1;
+                cart.listCart.splice(i, 1, itemCart);
+            }else {
+                cart.listCart.push(itemCart);
+                console.log("not equal");
+            }
+        }
+    }else {
+        console.log("first");
+        cart.listCart.push(itemCart);
+    }
 };
 var removeFromCart = function(index){
     cart.listCart.splice(index,1);
 }
-var todoStore = objectAssign({}, EventEmitter.prototype, {
+var Store = objectAssign({}, EventEmitter.prototype, {
     addChangeListener: function(cb){
         this.on(CHANGE_EVENT, cb);
     },
@@ -34,6 +54,9 @@ var todoStore = objectAssign({}, EventEmitter.prototype, {
     getList: function(){
         return store.listItem;
     },
+    getCart: function(){
+        return cart.listCart;
+    }
 });
 
 AppDispatcher.register(function(payload){
@@ -41,23 +64,25 @@ AppDispatcher.register(function(payload){
     switch(action.actionType){
         case appConstants.ADD_ITEM:
             addItem(action.data);
-            todoStore.emit(CHANGE_EVENT);
+            Store.emit(CHANGE_EVENT);``
             break;
         case appConstants.REMOVE_ITEM:
             removeItem(action.data);
-            todoStore.emit(CHANGE_EVENT);
+            Store.emit(CHANGE_EVENT);
             break;
         case appConstants.ADD_TO_CART:
-            addCart(action.data);
-            todoStore.emit(CHANGE_EVENT);
+            addToCart(action.data);
+            Store.emit(CHANGE_EVENT);
             break;
         case appConstants.REMOVE_FROM_CART:
             removeFromCart(action.data);
-            todoStore.emit(CHANGE_EVENT);
+            Store.emit(CHANGE_EVENT);
             break;
         default:
             return true;
     }
 });
 
-module.exports = todoStore;
+module.exports = Store;
+
+ // state.users.splice(this.state.indexUser, 1, this.state.templeUser);
