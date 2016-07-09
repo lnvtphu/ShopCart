@@ -19,9 +19,12 @@ var ListItem = React.createClass({
         )
     }.bind(this));
     return (
-        <ul className="uList">
-            {listItems}
-        </ul>
+        <div>
+            <h3>List Book</h3>
+            <ul className="uList">
+                {listItems}
+            </ul>
+        </div>
         )
     }
 });

@@ -31,7 +31,7 @@ var ListContainer = React.createClass({
     return (
       <div className="col-sm-6 col-md-offset-3">
         <div className="col-sm-12">
-          <h3 className="text-center"> Add Item</h3>
+          <h1 className="text-center">Add Book</h1>
           <AddItem addItem={this.handleAddItem}/>
           <List items={this.state.list} removeItem={this.handleRemoveItem}/>
         </div>

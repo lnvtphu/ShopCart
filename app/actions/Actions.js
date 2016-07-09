@@ -1,7 +1,7 @@
 var AppDispatcher = require('../dispatcher/AppDispatcher');
 var appConstants = require('../constants/appConstants');
 
-var todoActions = {
+var Actions = {
     addItem: function(item){
         AppDispatcher.handleAction({
             actionType: appConstants.ADD_ITEM,
@@ -28,4 +28,4 @@ var todoActions = {
     }
 };
 
-module.exports = todoActions;
+module.exports = Actions;

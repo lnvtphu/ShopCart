@@ -32,3 +32,19 @@
 .buttonOren{
     float: right;
 }
+.main{
+    margin: 0 auto;
+    margin-top: 20px;
+    width: 970px;
+    background-color: #009688;
+}
+.rowAddItem{
+    display: inline-block;
+    margin-bottom: 5px;
+}
+.form-control{
+    width: 66% !important;
+}
+.submit{
+    border-width: 0px;
+}

@@ -25,20 +25,20 @@ var addToCart = function(item){
         "cost": item.cost,
         "count": 1
     }
-    if(cart.listCart.length > 0){
+    if(cart.listCart.length < 1){
+        cart.listCart.push(itemCart);
+    }else {
+        var flag = 0;
         for(i=0; i< cart.listCart.length; i++){
             if(item.id == cart.listCart[i].id){
-                console.log("equal");
                 itemCart.count = cart.listCart[i].count +1;
                 cart.listCart.splice(i, 1, itemCart);
-            }else {
-                cart.listCart.push(itemCart);
-                console.log("not equal");
+                flag = 1;
             }
         }
-    }else {
-        console.log("first");
-        cart.listCart.push(itemCart);
+        if(flag == 0){
+            cart.listCart.push(itemCart);
+        }
     }
 };
 var removeFromCart = function(index){

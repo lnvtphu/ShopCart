@@ -33,7 +33,7 @@ var CartContainer = React.createClass({
     },
     render: function(){
         return(
-            <div>
+            <div className = "row">
                 <h1>List Item</h1>
                 <ListItemInCart lists={this.state.list} addToCart={this.handleAddToCart} />
                 <h1>Cart</h1>

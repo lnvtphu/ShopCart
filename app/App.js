@@ -1,5 +1,5 @@
 var React = require('react');
-var ListContainer = require('./components/ListContainer');
+var Admin = require('./components/Admin');
 var CartContainer = require('./components/CartContainer');
 var Link = require('react-router').Link;
 var Router = require('react-router').Router;
@@ -8,29 +8,29 @@ var browserHistory = require('react-router').browserHistory;
 var IndexRoute = require('react-router').IndexRoute;
 
 var App = React.createClass({
-  render: function(){
-    return (
-      <div className="container">
-        <div className="row">
-         <ul className="nav nav-tabs">
-          <li role="presentation"><Link to = "/">Home</Link></li>
-          <li role="presentation"> <Link to = "/cart">Cart</Link></li>
-          <li role="presentation"><Link to = "/about">About</Link></li>
-        </ul>
-         <div>
-           {this.props.children}
-         </div>
-        </div>
-      </div>
-    )
-  }
+    render: function(){
+        return (
+            <div className="container main">
+                <div className="row">
+                    <ul className="nav nav-tabs">
+                        <li role="presentation"><Link to = "/">Home</Link></li>
+                        <li role="presentation"> <Link to = "/admin">Admin</Link></li>
+                        <li role="presentation"><Link to = "/about">About</Link></li>
+                    </ul>
+                    <div>
+                        {this.props.children}
+                    </div>
+                </div>
+            </div>
+        )
+    }
 });
 
 React.render(
     <Router history={browserHistory}>
         <Route path="/" component={App}>
-            <IndexRoute component={ListContainer} />
-            <Route path="cart" component={CartContainer} />
+            <IndexRoute component={CartContainer} />
+            <Route path="admin" component={Admin} />
         </Route>
     </Router>
   ,document.getElementById('app')
