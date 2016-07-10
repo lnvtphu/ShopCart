@@ -7,7 +7,8 @@ var Actions = require('../actions/Actions');
 var ListContainer = React.createClass({
   getInitialState: function(){
       return {
-          list: Store.getList()
+          list: Store.getList(),
+          item: {}
       }
   },
   componentDidMount: function(){
@@ -22,18 +23,23 @@ var ListContainer = React.createClass({
   handleRemoveItem: function(index){
       Actions.removeItem(index);
   },
+  handleGetItem: function(item){
+      this.setState({
+          item: item
+      })
+  },
   _onChange: function(){
-    this.setState({
-      list: Store.getList()
-    })
+      this.setState({
+          list: Store.getList()
+      })
   },
   render: function(){
     return (
-      <div className="col-sm-6 col-md-offset-3">
-        <div className="col-sm-12">
-          <h1 className="text-center">Add Book</h1>
-          <AddItem addItem={this.handleAddItem}/>
-          <List items={this.state.list} removeItem={this.handleRemoveItem}/>
+      <div className="col-sm-8 col-md-offset-2">
+        <div className="col-sm-12 addBook">
+          <h2 className = "title">Add Book</h2>
+          <AddItem addItem={this.handleAddItem} sendItem={this.state.item}/>
+          <List items={this.state.list} removeItem={this.handleRemoveItem} getItem={this.handleGetItem}/>
         </div>
       </div>
     )

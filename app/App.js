@@ -12,14 +12,14 @@ var App = React.createClass({
         return (
             <div className="container main">
                 <div className="row">
-                    <ul className="nav nav-tabs">
+                    <ul className="nav nav-tabs col-sm-10 col-md-10 col-sm-offset-1 col-md-offset-1">
                         <li role="presentation"><Link to = "/">Home</Link></li>
                         <li role="presentation"> <Link to = "/admin">Admin</Link></li>
                         <li role="presentation"><Link to = "/about">About</Link></li>
                     </ul>
-                    <div>
-                        {this.props.children}
-                    </div>
+                </div>
+                <div className = "row">
+                    {this.props.children}
                 </div>
             </div>
         )

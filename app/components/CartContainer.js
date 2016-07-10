@@ -28,16 +28,25 @@ var CartContainer = React.createClass({
         console.log("OK");
       this.setState({
         list: Store.getList(),
-        cart: Store.getCart()
+        cart: Store.getCart(),
+        totalMoney: Store.getTotalMoney()
       })
     },
     render: function(){
         return(
             <div className = "row">
-                <h1>List Item</h1>
-                <ListItemInCart lists={this.state.list} addToCart={this.handleAddToCart} />
-                <h1>Cart</h1>
-                <Cart carts={this.state.cart}  removeFromCart={this.handleRemoveFromCart} />
+                <div className = "col-sm-6 col-md-6 cartLeft col-sm-offset-1 col-md-offset-1">
+                    <div className = "row">
+                        <h2 className = "title">List Item</h2>
+                    </div>
+                    <div>
+                        <ListItemInCart lists={this.state.list} addToCart={this.handleAddToCart} />
+                    </div>
+                </div>
+                <div className = "col-sm-4 col-md-4 cartRight">
+                    <h2 className = "title">Cart</h2>
+                    <Cart carts={this.state.cart}  removeFromCart={this.handleRemoveFromCart} totalMoney={this.state.totalMoney}/>
+                </div>
             </div>
         )
     }

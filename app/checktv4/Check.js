@@ -2,12 +2,13 @@ var tv4 = require('tv4');
 
 var schema = {
     "type" : "object",
-    "required" : ["id","name","content","cost"],
+    "required" : ["id","name","content","cost","image"],
     "properties" : {
         "id"    : { "type" : "string"  },
         "name"   : { "type" : "string"  },
         "content"  : { "type" : "string"   },
-        "cost"  : { "type" : "number" }
+        "cost"  : { "type" : "number" },
+        "image"  : { "type" : "string" }
     }
 }
 var Check ={

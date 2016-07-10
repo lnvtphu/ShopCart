@@ -6,7 +6,22 @@ var EventEmitter = require('events').EventEmitter;
 var CHANGE_EVENT = 'change';
 
 var store = {
-    listItem: []
+    listItem: [
+        {
+            "id": "01",
+            "name": "Book Love",
+            "content": "I believe each of my students must craft an individual reading life of challenge, whim, curiosity, and hunger, and I've discovered that it is not too late in high school to lead a non-reader to reading. It's never too late.",
+            "cost": 2595,
+            "image": "http://teacherlearningsessions.com/wp-content/uploads/2016/02/BOOKLOVELOGOv2020416.png"
+        },
+        {
+            "id": "02",
+            "name": "Incognito Chrome",
+            "content": "Pages you view in incognito tabs won’t stick around in your browser’s history, cookie store, or search history after you’ve closed all of your incognito tabs. Any files you download or bookmarks you create will be kept.However, you aren’t invisible. Going incognito doesn’t hide your browsing from your employer, your internet service provider, or the websites you visit.",
+            "cost": 1000,
+            "image": "http://teacherlearningsessions.com/wp-content/uploads/2016/02/BOOKLOVELOGOv2020416.png"
+        }
+    ]
 };
 var cart = {
     listCart: []
@@ -23,6 +38,7 @@ var addToCart = function(item){
         "id": item.id,
         "name": item.name,
         "cost": item.cost,
+        "image": item.image,
         "count": 1
     }
     if(cart.listCart.length < 1){
@@ -43,7 +59,7 @@ var addToCart = function(item){
 };
 var removeFromCart = function(index){
     cart.listCart.splice(index,1);
-}
+};
 var Store = objectAssign({}, EventEmitter.prototype, {
     addChangeListener: function(cb){
         this.on(CHANGE_EVENT, cb);
@@ -56,6 +72,15 @@ var Store = objectAssign({}, EventEmitter.prototype, {
     },
     getCart: function(){
         return cart.listCart;
+    },
+    getTotalMoney: function(){
+        var money = 0;
+        if(cart.listCart.length > 0){
+            for(i = 0; i < cart.listCart.length; i++){
+                money += (cart.listCart[i].count)*(cart.listCart[i].cost);
+            }
+        }
+        return money;
     }
 });
 
