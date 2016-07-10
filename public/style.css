@@ -41,9 +41,6 @@
 .form-control{
     width: 66% !important;
 }
-.submit{
-    border-width: 0px;
-}
 .cartLeft{
     border-radius: 4px;
     background-color: #AB47BC;
@@ -54,7 +51,7 @@
 }
 .nav-tabs{
     border-radius: 4px;
-    background-color: #00C853;
+    background-color: #64DD17;
     font-size: 20px
 }
 .nav-tabs>li>a {
@@ -75,6 +72,8 @@
 .button{
     border-width: 0px !important;
     border-radius: 4px;
+    margin-bottom: 5px;
+    height: 35px
 }
 .detailBook{
     max-height: 80px;
@@ -106,4 +105,8 @@
 }
 .clear{
     clear: both;
+}
+.obao{
+    text-align: center;
+    font-size: 77px;
 }

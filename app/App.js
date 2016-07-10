@@ -1,5 +1,6 @@
 var React = require('react');
 var Admin = require('./components/Admin');
+var About= require('./components/About');
 var CartContainer = require('./components/CartContainer');
 var Link = require('react-router').Link;
 var Router = require('react-router').Router;
@@ -31,6 +32,7 @@ React.render(
         <Route path="/" component={App}>
             <IndexRoute component={CartContainer} />
             <Route path="admin" component={Admin} />
+            <Route path="about" component={About} />
         </Route>
     </Router>
   ,document.getElementById('app')

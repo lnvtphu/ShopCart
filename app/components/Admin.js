@@ -35,7 +35,7 @@ var ListContainer = React.createClass({
   },
   render: function(){
     return (
-      <div className="col-sm-8 col-md-offset-2">
+      <div className="col-sm-8 col-md-8 col-md-offset-2 col-sm-offset-2">
         <div className="col-sm-12 addBook">
           <h2 className = "title">Add Book</h2>
           <AddItem addItem={this.handleAddItem} sendItem={this.state.item}/>

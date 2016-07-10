@@ -9,8 +9,8 @@
   },
   "author": "phu.le",
   "scripts": {
-    "startx": "npm run build && node server.js",
-    "start": "npm run build && npm run dev-server",
+    "start": "npm run build && node server.js",
+    "startx": "npm run build && npm run dev-server",
     "build": "./node_modules/.bin/webpack",
     "dev-server": "node_modules/.bin/http-server -p 3002 public/"
   },

@@ -58,8 +58,8 @@ var AddItem = React.createClass({
                 </div>
                 <div className = "row col-sm-12 col-md-12 rowAddItem">
                     <div className = "col-sm-8 col-md-8 col-md-offset-3 col-sm-offset-3">
-                        <button className="button col-sm-4 col-md-4 col-md-offset-4 col-sm-offset-4" onClick={this.handleSubmit}>Add Item</button>
-                        <button className="button col-sm-4 col-md-4 col-md-offset-4 col-sm-offset-4" onClick={this.handleUpdate}>Update Item</button>
+                        <button className="button col-sm-4 col-md-4 col-md-offset-4 col-sm-offset-4 submit" onClick={this.handleSubmit}>Add Item</button>
+                        <button className="button col-sm-4 col-md-4 col-md-offset-4 col-sm-offset-4 submit" onClick={this.handleUpdate}>Update Item</button>
                     </div>
                 </div>
 
