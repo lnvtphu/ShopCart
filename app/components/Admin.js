@@ -7,8 +7,7 @@ var Actions = require('../actions/Actions');
 var ListContainer = React.createClass({
   getInitialState: function(){
       return {
-          list: Store.getList(),
-          item: {}
+          list: Store.getList()
       }
   },
   componentDidMount: function(){
@@ -23,10 +22,18 @@ var ListContainer = React.createClass({
   handleRemoveItem: function(index){
       Actions.removeItem(index);
   },
-  handleGetItem: function(item){
+  childContextTypes: {
+      sendItem: React.PropTypes.any
+  },
+  getChildContext: function () {
+      return {
+          sendItem: this.state.sendItem
+      };
+  },
+  setSendItem: function (item) {
       this.setState({
-          item: item
-      })
+          sendItem: item
+      });
   },
   _onChange: function(){
       this.setState({
@@ -38,8 +45,8 @@ var ListContainer = React.createClass({
       <div className="col-sm-8 col-md-8 col-md-offset-2 col-sm-offset-2">
         <div className="col-sm-12 addBook">
           <h2 className = "title">Add Book</h2>
-          <AddItem addItem={this.handleAddItem} sendItem={this.state.item}/>
-          <List items={this.state.list} removeItem={this.handleRemoveItem} getItem={this.handleGetItem}/>
+          <AddItem addItem={this.handleAddItem} />
+          <List items={this.state.list} removeItem={this.handleRemoveItem}  setActiveItem={this.setSendItem}/>
         </div>
       </div>
     )
