@@ -3,7 +3,7 @@ var appConstants = require('../constants/appConstants');
 var objectAssign = require('react/lib/Object.assign');
 var EventEmitter = require('events').EventEmitter;
 
-var CHANGE_EVENT = 'change';
+var CHANGE_EVENT = 'changex';
 
 var store = {
     listItem: [
@@ -25,7 +25,8 @@ var store = {
 };
 var cart = {
     listCart: []
-}
+};
+var itemEdit = {};
 var addItem = function(item){
     store.listItem.push(item);
 };
@@ -57,9 +58,20 @@ var addToCart = function(item){
         }
     }
 };
+var updateItem = function(item){
+    for(i = 0; i < store.listItem; i++){
+        if(item.id == store.listItem[i].id){
+            store.listItem.splice(i, 1, item);
+            return;
+        }
+    }
+};
 var removeFromCart = function(index){
     cart.listCart.splice(index,1);
 };
+var editItem = function(item){
+    itemEdit = item;
+}
 var Store = objectAssign({}, EventEmitter.prototype, {
     addChangeListener: function(cb){
         this.on(CHANGE_EVENT, cb);
@@ -103,11 +115,13 @@ AppDispatcher.register(function(payload){
             removeFromCart(action.data);
             Store.emit(CHANGE_EVENT);
             break;
+        case appConstants.UPDATE_ITEM:
+            updateItem(action.data);
+            Store.emit(CHANGE_EVENT);
+            break;
         default:
             return true;
     }
 });
 
 module.exports = Store;
-
- // state.users.splice(this.state.indexUser, 1, this.state.templeUser);

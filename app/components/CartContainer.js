@@ -25,12 +25,11 @@ var CartContainer = React.createClass({
         Actions.removeFromCart(index);
     },
     _onChange: function(){
-        console.log("OK");
-      this.setState({
-        list: Store.getList(),
-        cart: Store.getCart(),
-        totalMoney: Store.getTotalMoney()
-      })
+        this.setState({
+            list: Store.getList(),
+            cart: Store.getCart(),
+            totalMoney: Store.getTotalMoney()
+        })
     },
     render: function(){
         return(

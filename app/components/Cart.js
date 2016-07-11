@@ -9,7 +9,6 @@ var Cart = React.createClass({
             }
             return (
                 <li key={index} className="list-group-item listGroup fontSizeCart" >
-
                     <div className = "col-sm-3 col-md-3">
                         <img src = {item.image} className = "imageBookInCart"/>
                     </div>

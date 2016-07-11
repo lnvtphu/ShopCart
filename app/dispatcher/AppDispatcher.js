@@ -3,7 +3,7 @@ var AppDispatcher = new Dispatcher();
 
 AppDispatcher.handleAction = function(action){
   this.dispatch({
-    source: 'VIEW_ACTION',
+    source: 'SHOP_ACTION',
     action: action
   });
 };
